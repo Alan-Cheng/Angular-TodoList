@@ -2,6 +2,7 @@
     <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
       <fieldset ngModelGroup="login">
         <input type="text"
+          placeholder="請輸入帳號"
           name="username"
           [(ngModel)]="username"
           #usernameRef="ngModel"
@@ -11,6 +12,7 @@
           <div *ngIf="usernameRef.errors?.['required']">this is required</div>
           <div *ngIf="usernameRef.errors?.['minlength']">should be at least 3 charactors</div>
         <input type="password"
+          placeholder="請輸入密碼"
           name="password"
           [(ngModel)]="password"
           #passwordRef="ngModel"
