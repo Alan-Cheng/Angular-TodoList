@@ -1,0 +1,42 @@
+/* Footer Styles */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #e6e6e6;
+    padding-top: 20px;
+  }
+  
+  .todo-count {
+    font-size: 16px;
+  }
+  
+  .filters {
+    list-style: none;
+    display: flex;
+  }
+  
+  .filters li {
+    margin-right: 10px;
+  }
+  
+  .filters li a {
+    text-decoration: none;
+    color: #777;
+  }
+  
+  .filters li a:hover {
+    text-decoration: underline;
+  }
+  
+  .clear-completed {
+    border: none;
+    background-color: transparent;
+    color: #777;
+    cursor: pointer;
+  }
+  
+  .clear-completed:hover {
+    text-decoration: underline;
+  }
+  

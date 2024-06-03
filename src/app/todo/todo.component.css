@@ -1,138 +1,85 @@
 /* 全局样式重置 */
 body, h1, h2, h3, h4, h5, h6, ul, li {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* 基本样式 */
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-  }
-  
-  section {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header {
-    margin-bottom: 20px;
-  }
-  
-  .header h1 {
-    font-size: 48px;
-    font-weight: 100;
-    color: #2d2d2d;
-  }
-  
-  .new-todo {
-    width: calc(100% - 20px);
-    padding: 10px;
-    font-size: 24px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .main {
-    margin-bottom: 20px;
-  }
-  
-  .todo-list {
-    list-style: none;
-  }
-  
-  .todo-list li {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #e6e6e6;
-  }
-  
-  .todo-list li:last-child {
-    border-bottom: none;
-  }
-  
-  .todo-list li .view {
-    flex-grow: 1;
-  }
-  
-  .todo-list li .view label {
-    cursor: pointer;
-    display: inline-block;
-    padding: 15px 20px;
-    font-size: 24px;
-  }
-  
-  .todo-list li .view label:hover {
-    text-decoration: underline;
-  }
-  
-  .todo-list li .view .toggle {
-    margin-right: 10px;
-  }
-  
-  .todo-list li .view .destroy .destroy {
-    cursor: pointer;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 20px;
-    height: 20px;
-    border: none;
-    opacity: 0.5;
-  }
-  
-  
-  .todo-list li .view .destroy:hover {
-    opacity: 1;
-  }
-  
-  .todo-list li.completed label {
-    text-decoration: line-through;
-    color: #d9d9d9;
-  }
-  
-  .footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid #e6e6e6;
-    padding-top: 20px;
-  }
-  
-  .todo-count {
-    font-size: 16px;
-  }
-  
-  .filters {
-    list-style: none;
-    display: flex;
-  }
-  
-  .filters li {
-    margin-right: 10px;
-  }
-  
-  .filters li a {
-    text-decoration: none;
-    color: #777;
-  }
-  
-  .filters li a:hover {
-    text-decoration: underline;
-  }
-  
-  .clear-completed {
-    border: none;
-    background-color: transparent;
-    color: #777;
-    cursor: pointer;
-  }
-  
-  .clear-completed:hover {
-    text-decoration: underline;
-  }
-  
+  margin: 0;
+  padding: 0;
+}
+
+/* 基本样式 */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+}
+
+section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-todo {
+  width: calc(100% - 20px);
+  padding: 10px;
+  font-size: 24px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main {
+  margin-bottom: 20px;
+}
+
+.todo-list {
+  list-style: none;
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.todo-list li:last-child {
+  border-bottom: none;
+}
+
+.todo-list li .view {
+  flex-grow: 1;
+}
+
+.todo-list li .view label {
+  cursor: pointer;
+  display: inline-block;
+  padding: 15px 20px;
+  font-size: 24px;
+}
+
+.todo-list li .view label:hover {
+  text-decoration: underline;
+}
+
+.todo-list li .view .toggle {
+  margin-right: 10px;
+}
+
+.todo-list li .view .destroy .destroy {
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border: none;
+  opacity: 0.5;
+}
+
+.todo-list li .view .destroy:hover {
+  opacity: 1;
+}
+
+.todo-list li.completed label {
+  text-decoration: line-through;
+  color: #d9d9d9;
+}
