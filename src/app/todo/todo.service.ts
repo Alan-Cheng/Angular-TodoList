@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TodoService {
-  private api_url = 'api/todos';
+  // private api_url = 'api/todos';
+  private api_url = 'http://localhost:4000/todos';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: HttpClient) { }
