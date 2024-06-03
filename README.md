@@ -7,7 +7,7 @@
 - 待辦事項模組
     - 新增、完成、刪除待辦事項
 
-為了方便開發，本專案暫時使用Node.js環境的JSON Server作為後端，提供REST API。
+為了方便開發，本專案暫時使用Node.js環境的JSON Server作為後端(port:4000)提供REST API。
 
 ## 專案介紹
 
