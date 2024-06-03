@@ -4,6 +4,7 @@
 - 新增 Todo
 - 標記 Todo 為完成
 - 刪除 Todo
+  
 為了方便開發，本專案暫時使用 InMemoryDB 作為後端。
  ![image](https://github.com/Alan-Cheng/Angular-TodoList/blob/master/todolist.png)
 
