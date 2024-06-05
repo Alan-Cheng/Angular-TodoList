@@ -15,11 +15,15 @@
 
 - 登入模組：
     - 具有帳號驗證機制，以顏色提醒使用者輸入正確長度的帳號與密碼
+
     ![image](https://github.com/Alan-Cheng/Angular-TodoList/blob/master/login.png)
+
     - 帳號密碼錯誤會有提示
+
     ![image](https://github.com/Alan-Cheng/Angular-TodoList/blob/master/login_fail.png)
 
 - 待辦事項模組：
     - 獨立的代辦事項清單，且可用下方過濾器篩選「全部、已完成、未完成」等待辦
     - 可清除全部代辦事項
+    
     ![image](https://github.com/Alan-Cheng/Angular-TodoList/blob/master/todolist.png)
