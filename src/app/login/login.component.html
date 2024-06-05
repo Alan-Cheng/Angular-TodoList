@@ -10,7 +10,8 @@
           minlength="3"
           />
           <div *ngIf="usernameRef.errors?.['required']">this is required</div>
-          <div *ngIf="usernameRef.errors?.['minlength']">should be at least 3 charactors</div>
+          <div *ngIf="usernameRef.errors?.['minlength']">帳戶名稱至少三個字元以上</div>
+          <div *ngIf="auth?.hasError">{{auth.errMsg}}</div>
         <input type="password"
           placeholder="請輸入密碼"
           name="password"

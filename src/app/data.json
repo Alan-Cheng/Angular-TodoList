@@ -4,41 +4,55 @@
       "id": "f21b3b1e-1b8b-4b1b-8b7b-8b1b3b1b3b1b",
       "desc": "Test JSON data NO.1",
       "completed": false,
-      "userID": 1
+      "userId": 1
     },
     {
       "id": "f211232e-1b8b-4b1b-8b7b-8b1b3b1b3b1d",
       "desc": "Now you can see me! :)",
       "completed": true,
-      "userID": 2
+      "userId": 2
     },
     {
       "id": "ecfa6082-fda2-6f37-54bd-5afd89ec01a8",
       "desc": "Now you can see me again^^",
       "completed": true,
-      "userID": 1
+      "userId": 1
     },
     {
       "id": "asdfasdf-1b8b-4b1b-8b7b-8b1b3b1b3b1d",
       "desc": "Test multiple users => by user 2",
       "completed": false,
-      "userID": 2
+      "userId": 2
     },
     {
       "id": "asdfasdf-1b8b-4b1b-8b7b-8b1b3b1b3b1d",
       "desc": "Test multiple users => by user 1",
       "completed": false,
-      "userID": 1
+      "userId": 1
+    },
+    {
+      "id": "c491bf2c-39c5-7c9a-a35b-d5e22e9efafb",
+      "desc": "",
+      "completed": false,
+      "userId": 1
+    },
+    {
+      "id": "bc358a5c-c1c2-e317-7217-4e7cbba2f390",
+      "desc": "",
+      "completed": false,
+      "userId": 2
     }
   ],
   "users": [
     {
       "id": 1,
-      "name": "Alan Cheng"
+      "username": "Alan",
+      "password": "test"
     },
     {
       "id": 2,
-      "name": "Yu Yu"
+      "username": "Yuyu",
+      "password": "test"
     }
   ]
 }

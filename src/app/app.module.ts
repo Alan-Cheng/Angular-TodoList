@@ -10,8 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './core/auth.service';
-
-
+import { UserService } from './core/user.service';
+import { AuthGuardService } from './core/auth-guard.service';
 
 
 
@@ -32,6 +32,8 @@ import { AuthService } from './core/auth.service';
   ],
   providers: [
     {provide: 'auth', useClass: AuthService},
+    {provide: 'user', useClass: UserService},
+    AuthGuardService,
   ],
   bootstrap: [AppComponent]
 })

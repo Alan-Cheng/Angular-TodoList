@@ -2,67 +2,89 @@ import { Injectable } from '@angular/core';
 import { Todo } from '../domain/entities';
 import { UUID } from 'angular2-uuid';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { forkJoin } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-  // private api_url = 'api/todos';
   private api_url = 'http://localhost:4000/todos';
-  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: HttpClient) { }
 
-  addTodo(desc: string): Promise<Todo> {
-    let id = UUID.UUID();
-    let todo = {id: id, desc: desc, completed: false};
-    return this.http.post(this.api_url, todo)
-      .toPromise()
-      .then(response => response as Todo)
-      .catch(this.handleError);
+  addTodo(desc: string): Observable<Todo> {
+    const userId: number = +localStorage.getItem('userId')!;
+    let todo = {
+      id: UUID.UUID(),
+      desc: desc,
+      completed: false,
+      userId
+    };
+    return this.http.post<Todo>(this.api_url, todo)
+      .pipe(catchError(this.handleError));
   }
 
-  toggleTodo(todo: Todo): Promise<Todo> {
+  toggleTodo(todo: Todo): Observable<Todo> {
     const url = `${this.api_url}/${todo.id}`;
-    let updatedTodo = Object.assign({}, todo, {completed: !todo.completed});
-    return this.http.put(url, updatedTodo)
-      .toPromise()
-      .then(() => updatedTodo)
-      .catch(this.handleError);
+    let updatedTodo = { ...todo, completed: !todo.completed };
+    return this.http.put<Todo>(url, updatedTodo)
+      .pipe(
+        map(() => updatedTodo),
+        catchError(this.handleError)
+      );
   }
 
-  deleteTodoById(id: string): Promise<null> {
+  deleteTodoById(id: string): Observable<null> {
     const url = `${this.api_url}/${id}`;
-    return this.http.delete(url)
-      .toPromise()
-      .then(() => null)
-      .catch(this.handleError);
+    return this.http.delete<null>(url)
+      .pipe(catchError(this.handleError));
   }
 
   getTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(this.api_url);
+    const userId: number = +localStorage.getItem('userId')!;
+    const url = `${this.api_url}?userId=${userId}`;
+    console.log(url);
+    return this.http.get<Todo[]>(url)
+      .pipe(catchError(this.handleError));
   }
 
-  private handleError(error: any): Promise<any> {
+  private handleError(error: any): Observable<never> {
     console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+    return throwError(error.message || error);
   }
 
-  clearCompleted(todos: Todo[]): Promise<Todo[]> {
+  clearCompleted(todos: Todo[]): Observable<Todo[]> {
     let completedTodos = todos.filter(todo => todo.completed);
-    let promises = completedTodos.map(todo => this.deleteTodoById(todo.id));
-    return Promise.all(promises).then(() => todos.filter(todo => !todo.completed));
+    let deleteRequests = completedTodos.map(todo => this.deleteTodoById(todo.id));
+
+    return forkJoin(deleteRequests)
+      .pipe(
+        map(() => todos.filter(todo => !todo.completed)),
+        catchError(this.handleError)
+      );
   }
 
   filterTodos(filter: string): Observable<Todo[]> {
-    switch(filter){
+    const userId: number = +localStorage.getItem('userId')!;
+    const url = `${this.api_url}?userId=${userId}`;
+    switch(filter) {
       case 'ACTIVE':
-        return this.http.get<Todo[]>(`${this.api_url}?completed=false`);
+        return this.http.get<Todo[]>(url)
+          .pipe(
+            map(todos => todos.filter(todo => !todo.completed)),
+            catchError(this.handleError)
+          );
       case 'COMPLETED':
-        return this.http.get<Todo[]>(`${this.api_url}?completed=true`);
+        return this.http.get<Todo[]>(url)
+          .pipe(
+            map(todos => todos.filter(todo => todo.completed)),
+            catchError(this.handleError)
+          );
       default:
-        return this.getTodos();
-    }
+        return this.http.get<Todo[]>(url)
+          .pipe(catchError(this.handleError));
+      }
   }
 }

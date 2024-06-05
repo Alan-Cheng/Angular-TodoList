@@ -1,21 +1,35 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from '../core/auth.service';
-import { FormsModule } from '@angular/forms';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
+import { Auth } from '../domain/entities';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrls: ['./login.component.css'], // 修正了这里的拼写错误
 })
-export class LoginComponent implements OnInit{
-  username!: string;
-  password!: string;
+export class LoginComponent implements OnInit {
+  username: string = '';
+  password: string = '';
+  auth!: Auth;
 
-  constructor(@Inject('auth') private service: AuthService) {}
+  constructor(@Inject('auth') private service: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
   onSubmit(formValue: any) {
-    console.log(this.service.loginWithCredentials(formValue.login.username, formValue.login.password));
+    this.service.loginWithCredentials(formValue.login.username, formValue.login.password)
+    .then(auth => {
+      let redirectUrl = (auth.redirectUrl === '/') ? '/' : auth.redirectUrl;
+      console.log(redirectUrl);
+      if (!auth.hasError) {
+        this.router.navigate([redirectUrl]);
+        localStorage.removeItem('redirectUrl');
+      }
+      else {
+        this.auth = Object.assign({}, auth);
+      }
+    });
   }
 }

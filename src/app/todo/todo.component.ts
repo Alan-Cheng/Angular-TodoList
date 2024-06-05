@@ -10,7 +10,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   providers: [TodoService]
 })
 export class TodoComponent implements OnInit {
-  todos : Todo[] = [];
+  todos: Todo[] = [];
   desc = '';
 
   constructor(private service: TodoService, private route: ActivatedRoute, private router: Router) {}
@@ -22,34 +22,36 @@ export class TodoComponent implements OnInit {
     });
   }
 
-  addTodo(){
+  addTodo() {
     this.service
       .addTodo(this.desc)
-      .then(todo => {
+      .subscribe(todo => {
         this.todos = [...this.todos, todo];
         this.desc = '';
       });
   }
+
   toggleTodo(todo: Todo) {
     const i = this.todos.indexOf(todo);
     this.service
       .toggleTodo(todo)
-      .then(t => {
+      .subscribe(t => {
         this.todos = [
-          ...this.todos.slice(0,i),
+          ...this.todos.slice(0, i),
           t,
-          ...this.todos.slice(i+1)
-          ];
+          ...this.todos.slice(i + 1)
+        ];
       });
   }
+
   removeTodo(todo: Todo) {
     const i = this.todos.indexOf(todo);
     this.service
       .deleteTodoById(todo.id)
-      .then(()=> {
+      .subscribe(() => {
         this.todos = [
-          ...this.todos.slice(0,i),
-          ...this.todos.slice(i+1)
+          ...this.todos.slice(0, i),
+          ...this.todos.slice(i + 1)
         ];
       });
   }
@@ -67,6 +69,6 @@ export class TodoComponent implements OnInit {
   clearCompleted() {
     this.service
       .clearCompleted(this.todos)
-      .then(todos => this.todos = todos);
+      .subscribe(todos => this.todos = todos);
   }
 }
