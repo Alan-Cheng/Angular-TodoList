@@ -24,6 +24,6 @@
 
 - 待辦事項模組：
     - 獨立的代辦事項清單，且可用下方過濾器篩選「全部、已完成、未完成」等待辦
-    - 可清除全部代辦事項
+    - 可清除全部待辦事項
     
     ![image](https://github.com/Alan-Cheng/Angular-TodoList/blob/master/todolist.png)
