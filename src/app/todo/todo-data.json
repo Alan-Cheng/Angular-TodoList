@@ -6,13 +6,13 @@
       "completed": false
     },
     {
-      "id": "f21b3b1e-1b8b-4b1b-8b7b-8b1b3b1b3b1c",
-      "desc": "It's created by Alan Cheng",
-      "completed": true
-    },
-    {
       "id": "f21b3b1e-1b8b-4b1b-8b7b-8b1b3b1b3b1d",
       "desc": "Now you can see me! :)",
+      "completed": false
+    },
+    {
+      "id": "ecfa6082-fda2-6f37-54bd-5afd89ec01a8",
+      "desc": "Now you can see me again^^",
       "completed": false
     }
   ]

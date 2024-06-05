@@ -15,7 +15,7 @@ export class TodoHeaderComponent implements OnInit{
   @Output() textChanges = new EventEmitter<string>();
   @Output() onEnterUp = new EventEmitter<boolean>();
 
-  constructor(private elementRef: ElementRef) { 
+  constructor(private elementRef: ElementRef) {
     const event$ = fromEvent(elementRef.nativeElement, 'keyup')
       .pipe(
         map(() => this.inputValue),

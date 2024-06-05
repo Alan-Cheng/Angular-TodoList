@@ -54,4 +54,15 @@ export class TodoService {
     let promises = completedTodos.map(todo => this.deleteTodoById(todo.id));
     return Promise.all(promises).then(() => todos.filter(todo => !todo.completed));
   }
+
+  filterTodos(filter: string): Observable<Todo[]> {
+    switch(filter){
+      case 'ACTIVE':
+        return this.http.get<Todo[]>(`${this.api_url}?completed=false`);
+      case 'COMPLETED':
+        return this.http.get<Todo[]>(`${this.api_url}?completed=true`);
+      default:
+        return this.getTodos();
+    }
+  }
 }
