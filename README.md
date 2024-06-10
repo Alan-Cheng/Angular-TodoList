@@ -1,5 +1,6 @@
 # TodoList 前端專案
 
+為了方便開發，本專案暫時使用Node.js環境的JSON Server作為後端(port:4000)提供REST API。
 用 Angular 框架練習前端開發。目前實作了以下模組：
 
 - 登入模組
@@ -7,7 +8,16 @@
 - 待辦事項模組
     - 新增、完成、刪除待辦事項
 
-為了方便開發，本專案暫時使用Node.js環境的JSON Server作為後端(port:4000)提供REST API。
+## 可使用 Docker 執行
+你可以使用Docker將Todolist-APP以容器(Container)執行，在目錄下輸入以下指令：
+
+    ```sh
+    docker build -t todolist .
+    docker run -d -p 4200:4200 todolist
+    ```
+
+可自行設定你想使用的port，例如8080:4200，4200為Angular預設port。
+
 
 ## 專案介紹
 實作一個簡單的 TodoList 應用程式來學習 Angular 框架。使用者可以新增待辦事項、標記待辦事項為已完成以及刪除待辦事項。
