@@ -13,15 +13,14 @@
 
     ```sh
     docker build -t todolist .
-    docker run -d -p 4200:4200 todolist
+    docker run -d -p 4200:4200 -p 4000:4000 todolist
     ```
 
-可自行設定你想使用的port，例如8080:4200，4200為Angular預設port。
-
+連線到localhost:4200即可進入登入頁面
 
 ## 專案介紹
 實作一個簡單的 TodoList 應用程式來學習 Angular 框架。使用者可以新增待辦事項、標記待辦事項為已完成以及刪除待辦事項。
-目前未建立註冊模組，僅用預設帳號測試多帳戶功能。
+目前未建立註冊模組，僅用預設帳號測試多帳戶功能(Alan, test ; Yuyu, test)。
 
 - 登入模組：
     - 具有帳號驗證機制，以顏色提醒使用者輸入正確長度的帳號與密碼
