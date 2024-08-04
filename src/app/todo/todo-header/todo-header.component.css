@@ -1,11 +1,25 @@
 /* Header Styles */
-.header {
-    margin-bottom: 20px;
-}
+
   
 .header h1 {
     font-size: 48px;
     font-weight: 100;
     color: #2d2d2d;
 }
+
+.header {
+    display: relative;
+    align-items: center;
+    justify-content: space-between; /* 将内容分布在两边 */
+    padding: 10px;
+}
+
+.new-todo {
+    margin: 0 10px;
+}
+
+.logout-button {
+    margin-left: auto; /* 确保按钮靠右 */
+}
+
   

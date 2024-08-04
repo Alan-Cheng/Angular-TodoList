@@ -1,9 +1,7 @@
 <section class="todoapp">
     <app-todo-header
-    placeholder="新增待辦事項"
-    [delay]="400"
     (textChanges)="onTextChanges($event)"
-    (onEnterUp)="addTodo()">
+    (onEnterUp)="onEnterUp($event)">
     </app-todo-header>
     <section class="main" *ngIf="todos && todos.length > 0">
       <!-- <input class="toggle-all" type="checkbox"> -->

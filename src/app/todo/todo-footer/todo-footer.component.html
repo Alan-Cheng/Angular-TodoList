@@ -1,12 +1,12 @@
-<footer class="footer" *ngIf="itemCount > 0">
-    <span class="todo-count">
-      <strong>{{itemCount}}</strong> {{itemCount == 1 ? '' : ''}} 件待辦事項
-    </span>
-    <ul class="filters">
-      <li>顯示：</li>
-      <li class="filters"><a routerLink="/todo/ALL">全部</a></li>
-      <li class="filters"><a routerLink="/todo/ACTIVE">未完成</a></li>
-      <li class="filters"><a routerLink="/todo/COMPLETED">已完成</a></li>
-    </ul>
-    <button class="clear-completed" (click)="onClick()">清除已完成</button>
+<footer class="footer" *ngIf="itemCount >= 0">
+  <span class="todo-count">
+    <strong>{{ itemCount }}</strong> 件待辦事項
+  </span>
+  <ul class="filters">
+    <li>顯示：</li>
+    <li class="filters"><a routerLink="/todo/ALL">全部</a></li>
+    <li class="filters"><a routerLink="/todo/ACTIVE">未完成</a></li>
+    <li class="filters"><a routerLink="/todo/COMPLETED">已完成</a></li>
+  </ul>
+  <button class="clear-completed" (click)="onClick()">清除已完成</button>
 </footer>

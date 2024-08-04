@@ -9,8 +9,8 @@
           required
           minlength="3"
           />
-          <div *ngIf="usernameRef.errors?.['required']">this is required</div>
-          <div *ngIf="usernameRef.errors?.['minlength']">帳戶名稱至少三個字元以上</div>
+          <div *ngIf="usernameRef.errors?.['required']">必須輸入帳號</div>
+          <div *ngIf="usernameRef.errors?.['minlength']">帳號名稱至少三個字元以上</div>
           <div *ngIf="auth?.hasError">{{auth.errMsg}}</div>
         <input type="password"
           placeholder="請輸入密碼"
@@ -19,8 +19,8 @@
           #passwordRef="ngModel"
           required
           />
-          <div *ngIf="passwordRef.errors?.['required']">this is required</div>
-        <button type="submit">Login</button>
+          <div *ngIf="passwordRef.errors?.['required']">必須輸入密碼</div>
+        <button type="submit">登入</button>
       </fieldset>
     </form>
   </div>

@@ -1,9 +1,10 @@
 <header class="header">
-    <h1>Todos</h1>
+    <h1>待辦事項</h1>
     <input 
-    class="new-todo" 
-    [placeholder]="placeholder" 
-    autofocus="" 
-    [(ngModel)]="inputValue" 
-    (keyup.enter)="enterUp()">
+        class="new-todo" 
+        [placeholder]="placeholder" 
+        autofocus 
+        [(ngModel)]="inputValue" 
+        (keyup.enter)="enterUp()">
+    <button (click)="logout()" class="logout-button">登出</button>
 </header>

@@ -7,7 +7,7 @@ import { Auth } from '../domain/entities';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'], // 修正了这里的拼写错误
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   username: string = '';
